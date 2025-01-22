@@ -95,8 +95,8 @@ public class Appointment {
 
 	@Override
 	public String toString() {
-		return "Agendamento marcado para " + customer + " no dia e horário: " + date
-				+ ". O valor total é de: " + totalValue + "Serviço(s): " + services + ".";
+		return "Agendamento realizado número" + id + " para a cliente " + customer + " no dia e horário: " + date
+				+ ". O valor total é de: " + totalValue + "Serviço(s): " + services;
 	}
 	
 	

@@ -1,11 +1,15 @@
 package service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import user.Customer;
 
-import java.util.Date;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Appointment {
 	
@@ -40,7 +44,7 @@ public class Appointment {
 	}
 	
 	// GETTER'S AND SETTER'S
-	// -> still don't know if it's necessary to create getters and setters for the id attribute
+	// -> still idk if it's necessary to create getters and setters for the id attribute
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -95,8 +99,8 @@ public class Appointment {
 
 	@Override
 	public String toString() {
-		return "Agendamento marcado para " + customer + " no dia e horário: " + date
-				+ ". O valor total é de: " + totalValue + "Serviço(s): " + services + ".";
+		return "Agendamento realizado número" + id + " para a cliente " + customer + " no dia e horário: " + date
+				+ ". O valor total é de: " + totalValue + "Serviço(s): " + services;
 	}
 	
 	

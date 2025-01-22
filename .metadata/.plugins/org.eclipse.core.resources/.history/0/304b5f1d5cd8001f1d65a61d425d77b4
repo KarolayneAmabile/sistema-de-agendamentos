@@ -1,6 +1,7 @@
 package user;
 
 public class Adm extends User {
+	private int id;
 	private String password;
 	private String email;
 	

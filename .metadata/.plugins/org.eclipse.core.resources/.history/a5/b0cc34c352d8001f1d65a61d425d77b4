@@ -1,15 +1,18 @@
 package user;
 
 public class Customer extends User {
+	private int id;
 	private String address;
 	
 	public Customer(int id, String name, String phone, String address) {
-		super(id, name, phone);
+		super(name, phone);
+		this.id = id;
 		this.setAddress(address);
 	}
 	
 	public Customer(int id, String name, String phone) {
-		super(id, name, phone);
+		super(name, phone);
+		this.id = id;
 	}
 	
 	public String getAddress() {

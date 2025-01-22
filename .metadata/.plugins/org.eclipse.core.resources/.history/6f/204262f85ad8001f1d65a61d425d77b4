@@ -1,13 +1,11 @@
 package service;
 
-import java.math.BigDecimal;
-
 public class Service {
 	private int id;
 	private String description;
-	private BigDecimal price;
+	private float price;
 	
-	public Service(int id, String description, BigDecimal price) {
+	public Service(int id, String description, float price) {
 		this.id = id;
 		this.setDescription(description);
 		this.setPrice(price);
@@ -20,10 +18,10 @@ public class Service {
 		this.description = description;
 	}
 	
-	public BigDecimal getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
-	public void setPrice(BigDecimal price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 }

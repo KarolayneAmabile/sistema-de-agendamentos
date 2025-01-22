@@ -7,7 +7,7 @@ public class Service {
 	private String description;
 	private BigDecimal price;
 	
-	public Service(int id, String description, BigDecimal price) {
+	public Service(int id, String description, float price) {
 		this.id = id;
 		this.setDescription(description);
 		this.setPrice(price);

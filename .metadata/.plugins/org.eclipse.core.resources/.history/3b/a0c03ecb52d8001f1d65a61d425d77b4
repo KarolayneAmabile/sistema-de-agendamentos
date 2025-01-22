@@ -1,11 +1,13 @@
 package user;
 
 public class Adm extends User {
+	private int id;
 	private String password;
 	private String email;
 	
 	public Adm (int id, String name, String phone, String password, String email) {
-		super(id, name, phone);
+		super(name, phone);
+		this.id = id;
 		this.setPassword(password);
 		this.setEmail(email);
 	}
