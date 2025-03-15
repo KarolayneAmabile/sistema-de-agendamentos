@@ -1,0 +1,24 @@
+package models;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+public class Salon {
+
+    private Map<LocalDate, List<Appointment>> appointments;
+    private List<SalonListener> listerners;
+    private List<Service> services;
+    private BigDecimal total = BigDecimal.ZERO;
+    
+    public Salon() {
+    	appointments = new HashMap<>();
+    	services = new ArrayList<>();
+    	listerners = new LinkedList<>();
+    }
+    
+    public synchronized void addSalonListener(SalonListener li

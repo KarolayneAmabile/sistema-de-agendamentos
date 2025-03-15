@@ -1,0 +1,51 @@
+package models;
+
+import java.util.Date;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Appointment {
+	
+	private int id;
+	private String customer;
+	private BigDecimal totalValue;
+	private Date date;
+	private Service service;
+	
+	public Appointment (int id, String customer, Date date, Service service) {
+		this.id = id;
+		this.setCustomer(customer);
+		this.setDate(date);
+		this.setService(service);
+		this.setTotalValue(service);
+	}
+	
+	public String getCustomer() {
+		return customer;
+	}
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+	
+	public Service getService() {
+		return service;
+	}
+	public void setService(Service service) {
+		this.service = service;
+	}
+	
+	public BigDecimal getTotalValue() {
+		return totalValue;
+	}
+	public void setTotalValue(Service service) {
+		this.totalValue = service.getPrice();
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+}

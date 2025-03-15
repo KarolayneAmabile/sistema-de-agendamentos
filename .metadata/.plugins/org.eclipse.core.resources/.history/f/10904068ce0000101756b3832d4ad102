@@ -1,0 +1,57 @@
+package controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import models.Salon;
+import models.Appointment;
+import models.SalonListener;
+import models.SalonEvent;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SalonController implements ActionListener {
+
+    private Salon salon;
+    private List<SalonListener> listeners = new ArrayList<>();
+
+    public SalonController(Salon salon) {
+        this.salon = salon;
+    }
+
+    public void addSalonListener(SalonListener listener) {
+        listeners.add(listener);
+    }
+
+    public void createAppointment(Appointment appointment) {
+        salon.addAppointment(appointment);
+        notifyListeners(appointment);
+    }
+
+    private void notifyListeners(Appointment appointment) {
+        SalonEvent event = new SalonEvent(salon, appointment);
+        for (SalonListener listener : listeners) {
+            listener.update(event);
+        }
+    }
+
+    public String getTotalDoDia() {
+        // Aqui você pode implementar a lógica para calcular o total do dia
+        return "1110,00"; // Apenas como exemplo temporário
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.equals("NOVO AGENDAMENTO")) {
+            new view.AppointmentPanel(this);
+        } else if (command.equals("CADASTRAR SERVIÇO")) {
+            new view.ServicePanel(this);
+        }
+    }
+}
+

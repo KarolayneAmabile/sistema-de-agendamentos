@@ -1,0 +1,18 @@
+package factory;
+
+import java.math.BigDecimal;
+
+import exceptions.StrException;
+import models.Service;
+
+public class SalonFactory {
+	public Service createService(int id, String serviceName, BigDecimal price) {
+		Service service = null;
+		try {
+			service = new Service(id, serviceName, price);
+		} catch (StrException e) {
+			
+		}
+		return service;
+	}
+}

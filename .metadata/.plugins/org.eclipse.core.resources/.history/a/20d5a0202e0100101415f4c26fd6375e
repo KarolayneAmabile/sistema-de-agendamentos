@@ -1,0 +1,34 @@
+package controller;
+
+import models.*;
+import view.Planner;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SalonController implements ActionListener {
+
+	private Salon salon;
+	private Planner view;
+
+	public SalonController(Salon salon) {
+		this.salon = salon;
+	}
+
+	public void setView(Planner view) {
+		this.view = view;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		String command = event.getActionCommand();
+
+		if (command.equals("NOVO AGENDAMENTO")) {
+			view.openAppointmentForm();
+		}
+
+		if (command.equals("CADASTRAR SERVIÇO")) {
+			view.openServiceForm();
+		}
+	}
+}

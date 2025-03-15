@@ -1,0 +1,40 @@
+package models;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+public class Salon {
+
+    private Map<Date, List<Appointment>> appointments;
+    private List<SalonListener> listerners = new LinkedList<>();
+    
+    public Salon (String name) {
+    	appointments = new HashMap<>();
+    }
+    
+    public synchronized void addSalonListener(SalonListener listener) {
+    	if(listerners.contains(listener)) {
+    		return;
+    	}
+    	this.listerners.add(listeners);
+    }
+    
+    public void notifyListeners(Appointment appointment) {
+    	for(SalonListener listeners : this.listerners) {
+    		listeners.update(new SalonEvent(this));
+    	}
+    }
+    
+    public void addAppointment(Appointment appointment) {
+    	if (!appointments.containsKey(appointment.getDate())) {
+    		appointments.put(appointment.getDate(), new ArrayList<>());
+        }
+        appointments.get(appointment.getDate()).add(appointment);
+        this.notifyListeners(appointment);
+    }
+}

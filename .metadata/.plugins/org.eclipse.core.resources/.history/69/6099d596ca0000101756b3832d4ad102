@@ -1,0 +1,42 @@
+package teste;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import exceptions.StrException;
+import models.Appointment;
+import models.Salon;
+import models.Service;
+
+public class oi {
+	public static void main(String[] str) {
+		Salon salon = new Salon();
+		
+		try {
+			salon.addService(new Service(1, "Chapinha", new BigDecimal(50.0)));
+		} catch (StrException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			salon.addService(new Service(2, "Escova", new BigDecimal(50.0)));
+		} catch (StrException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			salon.addService(new Service(3, "Progressiva", new BigDecimal(50.0)));
+		} catch (StrException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		salon.addAppointment(new Appointment(1, "Karol", new Date(), salon.getService("Chapinha")));
+		salon.addAppointment(new Appointment(1, "Karol", new Date(), salon.getService("Escova")));
+		salon.addAppointment(new Appointment(1, "Karol", new Date(), salon.getService("Progressiva")));
+		
+		for 
+
+		
+	}
+}

@@ -1,0 +1,14 @@
+package models;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import models.Appointment;
+
+// é um metodo que estará presente nas camadas do MVC e será chamado sempre
+// que houver alguma mudança
+public interface SalonListener {
+	public void updateAppointment(SalonEvent event);
+	public void updateService(SalonEvent event);
+
+}

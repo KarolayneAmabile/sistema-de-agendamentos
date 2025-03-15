@@ -1,0 +1,23 @@
+package models;
+
+import java.util.EventObject;
+
+// esse evento é o que realmente chega aos observadores...
+// é o que vai ser importante pra eles, no caso, o objeto appointment completo
+// envia o estado atual de Salon e Appointment 
+public class SalonEvent extends EventObject {
+	private Appointment appointment;
+	private Service service;
+	
+	public SalonEvent(Salon source) {
+		super(source);
+	}
+	public SalonEvent(Salon source, Appointment appointment) {
+		super(source);
+		this.appointment = appointment;
+	}
+	
+	public Appointment getAppointment() {
+		return this.appointment;
+	}
+}

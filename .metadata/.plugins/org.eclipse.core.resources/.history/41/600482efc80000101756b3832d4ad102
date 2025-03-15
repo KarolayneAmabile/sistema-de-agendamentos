@@ -1,0 +1,15 @@
+package teste;
+
+import java.util.Date;
+
+import models.Appointment;
+import models.Salon;
+
+public class oi {
+	public static void main(String[] str) {
+		Salon salon = new Salon();
+		
+		salon.addAppointment(new Appointment(1, "Karol", new Date());
+		
+	}
+}

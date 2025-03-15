@@ -1,0 +1,10 @@
+package main;
+
+import models.Salon;
+
+public class Main {
+	public static void main(String[] str) {
+		Salon salon = new Salon();
+		
+	}
+}

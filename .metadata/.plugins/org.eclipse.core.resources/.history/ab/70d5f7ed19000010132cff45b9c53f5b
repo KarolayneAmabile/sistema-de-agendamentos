@@ -1,0 +1,48 @@
+package models;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+public class Salon {
+
+    private Map<Date, List<Appointment>> appointments;
+    private List<SalonListener> listerners = new LinkedList<>();
+    private List<Service> services;
+    
+    // cria a instancia salão, que possui um hashmap que relaciona data e agendamentos
+    // e uma lista linkada de entidades interessadas em ouvir as mudanças
+    public Salon () {
+    	appointments = new HashMap<>();
+    	services = new ArrayList<>();
+    }
+    
+    // adiciona as classes interessadas no canal
+    public synchronized void addSalonListener(SalonListener listener) {
+    	if(listerners.contains(listener)) {
+    		return;
+    	}
+    	this.listerners.add(listener);
+    }
+    
+    // envia uma notificacao para todos os listeners do canal quando um
+    // novo agendamento é realizado
+    public void notifyListeners(Appointment appointment) {
+    	for(SalonListener listeners : this.listerners) {
+    		listeners.update(new SalonEvent(this, appointment));
+    	}
+    }
+    
+    // adiciona um novo agendamento
+    public void addAppointment(Appointment appointment) {
+    	if (!appointments.containsKey(appointment.getDate())) {
+    		appointments.put(appointment.getDate(), new ArrayList<>());
+        }
+        appointments.get(appointment.getDate()).add(appointment);
+        this.notifyListeners(appointment);
+    }
+}

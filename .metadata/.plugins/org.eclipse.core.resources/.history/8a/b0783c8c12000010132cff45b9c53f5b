@@ -1,0 +1,9 @@
+package models;
+
+import java.util.EventObject;
+
+public class SalonEvent extends EventObject {
+	public SalonEvent(Salon source) {
+		super(source);
+	}
+}

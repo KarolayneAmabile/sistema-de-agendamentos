@@ -1,0 +1,36 @@
+import controller.SalonController;
+import javax.swing.*;
+import java.awt.*;
+
+public class AppointmentPanel extends JFrame {
+    public AppointmentPanel(SalonController controller) {
+        setTitle("Novo Agendamento");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLayout(new GridLayout(5, 2));
+
+        add(new JLabel("Cliente:"));
+        JTextField clienteField = new JTextField();
+        add(clienteField);
+
+        add(new JLabel("Serviço:"));
+        JTextField servicoField = new JTextField();
+        add(servicoField);
+
+        add(new JLabel("Data:"));
+        JTextField dataField = new JTextField();
+        add(dataField);
+
+        add(new JLabel("Preço:"));
+        JTextField precoField = new JTextField();
+        add(precoField);
+
+        JButton confirmar = new JButton("Confirmar");
+        add(confirmar);
+
+        setVisible(true);
+    }
+    public static void showPanel() {
+        new AppointmentPanel(null);
+    }
+}

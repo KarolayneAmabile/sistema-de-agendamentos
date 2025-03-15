@@ -1,0 +1,13 @@
+package factory;
+
+import java.math.BigDecimal;
+
+import models.Service;
+
+public class SalonFactory {
+	public Service createService(int id, String serviceName, BigDecimal price) {
+		try {
+			
+		}
+	}
+}

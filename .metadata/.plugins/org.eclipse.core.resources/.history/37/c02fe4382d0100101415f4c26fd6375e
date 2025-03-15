@@ -1,0 +1,42 @@
+package controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import models.Salon;
+import models.Appointment;
+import models.SalonListener;
+import models.SalonEvent;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SalonController implements ActionListener {
+
+    private Salon salon;
+    
+    public SalonController(Salon salon) {
+        this.salon = salon;
+    }
+    // temos doiis botoes:
+    // Cadastrar Serviço
+    // Novo agendamento
+    // o controle precisa escutar as ações da view 
+    // avisar ao model, salão
+
+    // actionPerfomed dispara toda vez que uma ação acontece
+    // como são só dois botões, podemos observar só o clique
+    public void actionPerformed(ActionEvent event) {
+    	String command = event.getActionCommand();
+    	if (command.equals("NOVO AGENDAMENTO")) {
+    		new view.AppointmentPanel(this);
+    	}
+    	if (command.equals("CADASTRAR SERVIÇO")) {
+    		new view.ServicePanel(this);
+    	}
+    }
+}
+
