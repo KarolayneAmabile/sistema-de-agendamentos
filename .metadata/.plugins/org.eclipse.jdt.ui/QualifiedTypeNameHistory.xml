@@ -6,4 +6,5 @@
     <fullyQualifiedTypeName name="view.ServicePanel"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="factory.SalonFactory"/>
+    <fullyQualifiedTypeName name="serialization.Serialization"/>
 </qualifiedTypeNameHistroy>
