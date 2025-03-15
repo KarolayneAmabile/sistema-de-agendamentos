@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Service {
+public class Service implements Serializable {
 	private int id;
 	private String serviceName;
 	private BigDecimal price;

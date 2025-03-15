@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,8 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Salon {
+import serialization.Deserialization;
+import serialization.Serialization;
 
+public class Salon implements Serializable {
+
+	private static final long serialVersionUID = 1L;
     private Map<LocalDate, List<Appointment>> appointments;
     private List<SalonListener> listerners;
     private List<Service> services;
@@ -49,11 +54,13 @@ public class Salon {
         appointments.get(date).add(appointment);
         this.total = this.total.add(appointment.getTotalValue());
         this.notifyNewAppointment(appointment);
+        this.saveData();
     }
     
     public void addService(Service service) {
     	services.add(service);
     	notifyNewService(service);
+    	this.saveData();
     }
     
     public Map<LocalDate, List<Appointment>> getAppointments() {
@@ -66,5 +73,20 @@ public class Salon {
     
     public BigDecimal getTotal() {
     	return this.total;
+    }
+    
+    public void saveData() {
+    	try {
+			Serialization.serialize("./salon.obj", this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    public static Salon start() {
+        try {
+            return (Salon) Deserialization.deserialize("./salon.obj");
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

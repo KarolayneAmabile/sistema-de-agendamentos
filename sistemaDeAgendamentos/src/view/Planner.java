@@ -60,7 +60,7 @@ public class Planner extends JFrame implements SalonListener {
 
         for (int i = 0; i < appointments.size(); i++) {
             Appointment appointment = appointments.get(i);
-            rows[i][0] = appointment.getDate().toString();
+            rows[i][0] = appointment.getDate().toString() + " : " + appointment.getTime().toString();
             rows[i][1] = appointment.getCustomer();
             rows[i][2] = appointment.getService().getServiceName();
             rows[i][3] = "R$ " + appointment.getTotalValue().toString();
@@ -142,13 +142,16 @@ public class Planner extends JFrame implements SalonListener {
                 JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso.");
             } catch (StrException e) {
             	JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
-            }
+            } catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
     }
 
     @Override
     public void updateAppointment(SalonEvent event) {
-    //
+    //nao consegui usar bem...
     }
 
     @Override

@@ -1,11 +1,12 @@
 package models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import exceptions.StrException;
 
-public class Appointment {
+public class Appointment implements Serializable {
 	
 	private int id;
 	private String customer;

@@ -8,12 +8,13 @@ import java.time.format.DateTimeParseException;
 import exceptions.StrException;
 import models.Appointment;
 import models.Service;
+import serialization.Serialization;
 
 public class SalonFactory {
 	private static int serialService = 0;
 	private static int serialAppointment = 0;
-	
-	public static Service createService(String serviceName, BigDecimal price) throws StrException {
+		
+	public static Service createService(String serviceName, BigDecimal price) throws Exception {
 		Service service = null;
 
 		if (!(serviceName != null && !serviceName.trim().isEmpty() && (serviceName.length() <= 100 && serviceName.length() >= 3))) {
