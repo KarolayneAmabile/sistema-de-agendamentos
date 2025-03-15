@@ -98,7 +98,7 @@ public class Planner extends JFrame implements SalonListener {
         appointmentPanel.add(clientName);
         appointmentPanel.add(new JLabel("Data: yyyy-MM-dd"));
         appointmentPanel.add(dateText);
-        appointmentPanel.add(new JLabel("Horário: "));
+        appointmentPanel.add(new JLabel("Horário: HH:mm"));
         appointmentPanel.add(timeText);
         appointmentPanel.add(new JLabel("Serviço: "));
         appointmentPanel.add(serviceComboBox);
@@ -151,7 +151,7 @@ public class Planner extends JFrame implements SalonListener {
 
     @Override
     public void updateAppointment(SalonEvent event) {
-    //nao consegui usar bem...
+    //
     }
 
     @Override
