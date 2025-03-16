@@ -14,7 +14,7 @@ public class SalonFactory {
 	private static int serialService = 0;
 	private static int serialAppointment = 0;
 		
-	public static Service createService(String serviceName, BigDecimal price) throws Exception {
+	public static Service createService(String serviceName, BigDecimal price) throws StrException {
 		Service service = null;
 
 		if (!(serviceName != null && !serviceName.trim().isEmpty() && (serviceName.length() <= 100 && serviceName.length() >= 3))) {
